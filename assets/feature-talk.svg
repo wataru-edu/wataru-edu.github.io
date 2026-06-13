@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 96" role="img" aria-labelledby="title">
+  <title id="title">二人の先生が気軽に話している様子</title>
+  <path d="M14 14h58c7 0 12 5 12 12v23c0 7-5 12-12 12H43L27 74l3-13H14C7 61 2 56 2 49V26c0-7 5-12 12-12Z" fill="#fffdf7" stroke="#4c5b56" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M61 43h41c8 0 14 6 14 14v13c0 8-6 14-14 14H86l-2 10-12-10H61c-8 0-14-6-14-14V57c0-8 6-14 14-14Z" fill="#f7d2ba" stroke="#4c5b56" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="24" cy="37" r="4" fill="#69bfc0"/>
+  <circle cx="43" cy="37" r="4" fill="#69bfc0"/>
+  <circle cx="62" cy="37" r="4" fill="#69bfc0"/>
+  <path d="M65 64c5-6 12-6 17 0M86 64c5-6 12-6 17 0" fill="none" stroke="#4c5b56" stroke-width="4" stroke-linecap="round"/>
+  <path d="M75 74c4 4 13 4 17 0" fill="none" stroke="#ea8f78" stroke-width="4" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 96" role="img" aria-labelledby="title">
+  <title id="title">ノートにアイデアを試し書きしている様子</title>
+  <path d="M18 19c17-6 31-4 42 5 11-9 25-11 42-5v62c-17-6-31-4-42 5-11-9-25-11-42-5V19Z" fill="#fffdf7" stroke="#4c5b56" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M60 25v60" stroke="#4c5b56" stroke-width="3" stroke-linecap="round"/>
+  <path d="M28 35h21M28 47h17M71 36h21M71 48h16" stroke="#b8d8cf" stroke-width="4" stroke-linecap="round"/>
+  <path d="m87 70 20-31 8 5-20 31-11 7 3-12Z" fill="#f3cf74" stroke="#4c5b56" stroke-width="4" stroke-linejoin="round"/>
+  <path d="m105 42 4-6 8 5-4 6" fill="#ea8f78" stroke="#4c5b56" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M11 9v12M5 15h12M98 8l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7Z" fill="#69bfc0"/>
+</svg>

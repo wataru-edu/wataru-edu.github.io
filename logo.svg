@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 126" role="img" aria-labelledby="title desc">
+  <title id="title">いろどり先生の学び場</title>
+  <desc id="desc">鳥の羽とはりねずみの針が開いた本を囲むロゴ</desc>
+  <defs>
+    <linearGradient id="book" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff8e9"/>
+      <stop offset="1" stop-color="#f5e2bb"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(6 7)">
+    <path d="M50 6c18 4 34 16 42 31-18-8-33-7-45 2 11 1 21 6 29 14-24-2-41 7-50 28C14 58 21 24 50 6Z" fill="#69bfc0"/>
+    <path d="M65 92c14-25 29-39 45-44-7 12-8 24-4 36 5-12 12-21 22-27-1 18-10 35-28 51Z" fill="#bc8d68"/>
+    <path d="M21 78c20-7 37-5 51 7 13-12 30-14 51-7v29c-20-8-37-5-51 7-14-12-31-15-51-7Z" fill="url(#book)" stroke="#57473c" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M72 86v28" stroke="#57473c" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="111" cy="29" r="7" fill="#f4b64b"/>
+    <circle cx="21" cy="25" r="5" fill="#ef8f78"/>
+  </g>
+  <g fill="#3e4945">
+    <text x="151" y="60" font-family="'Yu Gothic','Hiragino Sans',sans-serif" font-size="20" font-weight="700" letter-spacing="3" fill="#68aaa8">TEACHERS' COMMUNITY</text>
+    <text x="150" y="103" font-family="'Yu Gothic','Hiragino Sans',sans-serif" font-size="40" font-weight="800" letter-spacing="2">いろどり先生の学び場</text>
+  </g>
+</svg>

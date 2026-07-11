@@ -6,24 +6,83 @@ const events = [
     typeLabel: "対面",
     date: "7月12日（日）",
     time: "10:00〜13:00",
-    title: "いろどり",
+    title: "先生たちの学び場",
     description: "先生同士で、日々の教室のことを話しながら学ぶ時間です。",
     place: "ONVO SALON URAWA",
-    calendar: "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E3%80%90%E3%81%84%E3%82%8D%E3%81%A9%E3%82%8A%E5%85%88%E7%94%9F%E3%81%AE%E5%AD%A6%E3%81%B3%E5%A0%B4%E3%80%91%E5%AD%A6%E3%81%B3%E5%A0%B4%E5%AF%BE%E9%9D%A2%E5%AD%A6%E7%BF%92%E4%BC%9A&dates=20260712T100000/20260712T130000&ctz=Asia/Tokyo&location=ONVO%20SALON%20URAWA"
+    start: "20260712T100000",
+    end: "20260712T130000"
   },
   {
     type: "online",
     typeLabel: "オンライン",
     date: "7月26日（日）",
     time: "20:00〜20:40",
-    title: "いろどり Zoom",
+    title: "先生たちの学び場Zoom",
     description: "Zoomで気軽に集まり、明日のヒントをひとつ持ち帰る時間です。",
     place: "Zoom",
-    calendar: "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E3%80%90%E3%81%84%E3%82%8D%E3%81%A9%E3%82%8A%E5%85%88%E7%94%9F%E3%81%AE%E5%AD%A6%E3%81%B3%E5%A0%B4%E3%80%91%E5%AD%A6%E3%81%B3%E5%A0%B4%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E5%AD%A6%E7%BF%92%E4%BC%9A&dates=20260726T200000/20260726T204000&ctz=Asia/Tokyo&location=Zoom"
+    start: "20260726T200000",
+    end: "20260726T204000"
+  },
+  {
+    type: "in-person",
+    typeLabel: "対面",
+    date: "8月5日（水）",
+    time: "10:00〜13:00",
+    title: "先生たちの学び場",
+    description: "先生同士で、日々の教室のことを話しながら学ぶ時間です。",
+    place: "ONVO SALON URAWA",
+    start: "20260805T100000",
+    end: "20260805T130000"
+  },
+  {
+    type: "in-person",
+    typeLabel: "対面",
+    date: "9月13日（日）",
+    time: "10:00〜12:00",
+    title: "先生たちの学び場",
+    description: "先生同士で、日々の教室のことを話しながら学ぶ時間です。",
+    place: "ONVO SALON URAWA",
+    start: "20260913T100000",
+    end: "20260913T120000"
+  },
+  {
+    type: "in-person",
+    typeLabel: "対面",
+    date: "10月3日（土）",
+    time: "10:00〜12:00",
+    title: "先生たちの学び場",
+    description: "先生同士で、日々の教室のことを話しながら学ぶ時間です。",
+    place: "ONVO SALON URAWA",
+    start: "20261003T100000",
+    end: "20261003T120000"
+  },
+  {
+    type: "in-person",
+    typeLabel: "対面",
+    date: "11月29日（日）",
+    time: "10:00〜12:00",
+    title: "先生たちの学び場",
+    description: "先生同士で、日々の教室のことを話しながら学ぶ時間です。",
+    place: "ONVO SALON URAWA",
+    start: "20261129T100000",
+    end: "20261129T120000"
   }
 ];
 
 const scheduleList = document.querySelector("#schedule-list");
+
+function calendarUrl(event) {
+  const params = new URLSearchParams({
+    action: "TEMPLATE",
+    text: `【いろどり先生の学び場】${event.title}`,
+    dates: `${event.start}/${event.end}`,
+    ctz: "Asia/Tokyo",
+    details: `${event.description}\n\n場所: ${event.place}\n申し込み: ${formUrl}`,
+    location: event.place
+  });
+
+  return `https://calendar.google.com/calendar/render?${params.toString()}`;
+}
 
 function renderEvents(filter = "all") {
   const visibleEvents = events.filter(event => filter === "all" || event.type === filter);
@@ -37,7 +96,7 @@ function renderEvents(filter = "all") {
       <p class="event-place">場所：${event.place}</p>
       <div class="event-actions">
         <a href="${formUrl}" target="_blank" rel="noopener">ちょっと参加してみる</a>
-        <a class="calendar" href="${event.calendar}" target="_blank" rel="noopener">予定に入れる</a>
+        <a class="calendar" href="${calendarUrl(event)}" target="_blank" rel="noopener">予定に入れる</a>
       </div>
     </article>
   `).join("");

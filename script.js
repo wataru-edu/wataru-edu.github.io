@@ -4,20 +4,10 @@ const events = [
   {
     type: "in-person",
     typeLabel: "対面",
-    date: "6月28日（日）",
-    time: "10:00〜13:00",
-    title: "学び場 対面の会",
-    description: "悩み相談や模擬授業。話したいことを持ち寄って、ゆっくり考えます。",
-    place: "ONVO SALON URAWA",
-    calendar: "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E3%80%90%E3%81%84%E3%82%8D%E3%81%A9%E3%82%8A%E5%85%88%E7%94%9F%E3%81%AE%E5%AD%A6%E3%81%B3%E5%A0%B4%E3%80%91%E5%AD%A6%E3%81%B3%E5%A0%B4%E5%AF%BE%E9%9D%A2%E5%AD%A6%E7%BF%92%E4%BC%9A&dates=20260628T100000/20260628T130000&ctz=Asia/Tokyo&location=ONVO%20SALON%20URAWA"
-  },
-  {
-    type: "in-person",
-    typeLabel: "対面",
     date: "7月12日（日）",
     time: "10:00〜13:00",
-    title: "学び場 対面の会",
-    description: "日々の教室で気になっていることを、学校を越えて話してみる時間です。",
+    title: "いろどり",
+    description: "先生同士で、日々の教室のことを話しながら学ぶ時間です。",
     place: "ONVO SALON URAWA",
     calendar: "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E3%80%90%E3%81%84%E3%82%8D%E3%81%A9%E3%82%8A%E5%85%88%E7%94%9F%E3%81%AE%E5%AD%A6%E3%81%B3%E5%A0%B4%E3%80%91%E5%AD%A6%E3%81%B3%E5%A0%B4%E5%AF%BE%E9%9D%A2%E5%AD%A6%E7%BF%92%E4%BC%9A&dates=20260712T100000/20260712T130000&ctz=Asia/Tokyo&location=ONVO%20SALON%20URAWA"
   },
@@ -26,8 +16,8 @@ const events = [
     typeLabel: "オンライン",
     date: "7月26日（日）",
     time: "20:00〜20:40",
-    title: "学び場 オンラインの会",
-    description: "一日の終わりに、ちょっと話して、明日のヒントをひとつ持ち帰ります。",
+    title: "いろどり Zoom",
+    description: "Zoomで気軽に集まり、明日のヒントをひとつ持ち帰る時間です。",
     place: "Zoom",
     calendar: "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E3%80%90%E3%81%84%E3%82%8D%E3%81%A9%E3%82%8A%E5%85%88%E7%94%9F%E3%81%AE%E5%AD%A6%E3%81%B3%E5%A0%B4%E3%80%91%E5%AD%A6%E3%81%B3%E5%A0%B4%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E5%AD%A6%E7%BF%92%E4%BC%9A&dates=20260726T200000/20260726T204000&ctz=Asia/Tokyo&location=Zoom"
   }

@@ -40,6 +40,19 @@ const events = [
   {
     type: "in-person",
     typeLabel: "対面",
+    date: "8月16日（日）",
+    time: "14:00〜16:00",
+    title: "TOSS埼玉 夏フェス2026",
+    description: "2学期最初の3日間に向けて、授業・生徒指導・特別支援などを学べる夏の学習会です。",
+    place: "大宮ソニックシティ",
+    sortDate: "2026-08-16",
+    start: "20260816T140000",
+    end: "20260816T160000",
+    formUrl: "https://forms.gle/RF2BRwkp7KbYWL4Q9"
+  },
+  {
+    type: "in-person",
+    typeLabel: "対面",
     date: "9月13日（日）",
     time: "10:00〜12:00",
     title: "先生たちの学び場",
@@ -190,12 +203,13 @@ function todayInJapan() {
 }
 
 function calendarUrl(event) {
+  const registrationUrl = event.formUrl || formUrl;
   const params = new URLSearchParams({
     action: "TEMPLATE",
     text: `【いろどり先生の学び場】${event.title}`,
     dates: `${event.start}/${event.end}`,
     ctz: "Asia/Tokyo",
-    details: `${event.description}\n\n場所: ${event.place}\n申し込み: ${formUrl}`,
+    details: `${event.description}\n\n場所: ${event.place}\n申し込み: ${registrationUrl}`,
     location: event.place
   });
 
@@ -230,7 +244,7 @@ function renderEvents(filter = "all") {
       <p>${nextEvent.description}</p>
       <p class="event-place">場所：${nextEvent.place}</p>
       <div class="event-actions">
-        <a href="${formUrl}" target="_blank" rel="noopener">ちょっと参加してみる</a>
+        <a href="${nextEvent.formUrl || formUrl}" target="_blank" rel="noopener">ちょっと参加してみる</a>
         <a class="calendar" href="${calendarUrl(nextEvent)}" target="_blank" rel="noopener">予定に入れる</a>
       </div>
     </article>
@@ -248,7 +262,7 @@ function renderEvents(filter = "all") {
             <p>場所：${event.place}</p>
           </div>
           <div class="event-row-actions">
-            <a href="${formUrl}" target="_blank" rel="noopener">参加</a>
+            <a href="${event.formUrl || formUrl}" target="_blank" rel="noopener">参加</a>
             <a class="calendar" href="${calendarUrl(event)}" target="_blank" rel="noopener">予定</a>
           </div>
         </article>

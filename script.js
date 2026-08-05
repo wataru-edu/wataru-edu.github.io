@@ -49,6 +49,8 @@ const events = [
     start: "20260816T140000",
     end: "20260816T160000",
     image: "assets/toss-saitama-summer-fes.svg",
+    special: true,
+    specialLabel: "特別学習会",
     formUrl: "https://forms.gle/RF2BRwkp7KbYWL4Q9"
   },
   {
@@ -115,16 +117,25 @@ function injectScheduleStyles() {
       border: 0;
       background: linear-gradient(145deg, #fffef9, #fff5e8);
     }
+    .next-event.special-event {
+      border: 2px solid rgba(234, 143, 120, .28);
+      background: linear-gradient(145deg, #fff8db, #fff2ec 58%, #fffef9);
+    }
     .next-event.has-image { padding-top: 24px; }
     .next-event .event-date { font-size: 34px; }
     .event-poster {
       width: 100%;
       aspect-ratio: 4 / 3;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
       margin: 0 0 20px;
       border-radius: 22px;
+      background: white;
       box-shadow: 0 16px 34px rgba(73, 108, 96, .14);
+    }
+    .tag.special-label {
+      background: var(--coral);
+      color: white;
     }
     .event-list {
       display: grid;
@@ -150,14 +161,22 @@ function injectScheduleStyles() {
       background: white;
       box-shadow: 0 12px 34px rgba(73, 108, 96, .06);
     }
-    .event-row.has-image { grid-template-columns: 145px 148px 1fr auto; }
+    .event-row.has-image { grid-template-columns: 145px 180px 1fr auto; }
     .event-row.online { background: #fff8f0; }
+    .event-row.special-event {
+      border: 1px solid rgba(234, 143, 120, .26);
+      background: linear-gradient(145deg, #fffaf0, #fff2ec);
+      box-shadow: 0 16px 42px rgba(234, 143, 120, .12);
+    }
+    .event-row.special-event h3 { color: #b95f45; }
     .event-row-image {
-      width: 148px;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
+      width: 180px;
+      aspect-ratio: 220 / 156;
+      object-fit: contain;
       display: block;
+      border: 4px solid white;
       border-radius: 16px;
+      background: white;
       box-shadow: 0 10px 22px rgba(73, 108, 96, .11);
     }
     .event-row-date span {
@@ -238,6 +257,10 @@ function calendarUrl(event) {
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }
 
+function eventMeta(event) {
+  return `<span class="tag ${event.type === "online" ? "online" : ""}">${event.typeLabel}</span>${event.special ? `<span class="tag special-label">${event.specialLabel || "特別回"}</span>` : ""}<span class="tag">開催予定</span>`;
+}
+
 function renderEvents(filter = "all") {
   const today = todayInJapan();
   const visibleEvents = events
@@ -257,9 +280,9 @@ function renderEvents(filter = "all") {
 
   const [nextEvent, ...laterEvents] = visibleEvents;
   scheduleList.innerHTML = `
-    <article class="event-card next-event ${nextEvent.type === "online" ? "online" : ""} ${nextEvent.image ? "has-image" : ""}">
-      <div class="event-label">次回の学び場</div>
-      <div class="event-meta"><span class="tag ${nextEvent.type === "online" ? "online" : ""}">${nextEvent.typeLabel}</span><span class="tag">開催予定</span></div>
+    <article class="event-card next-event ${nextEvent.type === "online" ? "online" : ""} ${nextEvent.image ? "has-image" : ""} ${nextEvent.special ? "special-event" : ""}">
+      <div class="event-label">${nextEvent.special ? "次回の特別学習会" : "次回の学び場"}</div>
+      <div class="event-meta">${eventMeta(nextEvent)}</div>
       ${nextEvent.image ? `<img class="event-poster" src="${nextEvent.image}" alt="${nextEvent.title}の案内画像">` : ""}
       <div class="event-date">${nextEvent.date}</div>
       <div class="event-time">${nextEvent.time}</div>
@@ -274,14 +297,14 @@ function renderEvents(filter = "all") {
     <div class="event-list" aria-label="今後の日程">
       <div class="event-list-heading">このあとの予定</div>
       ${laterEvents.map(event => `
-        <article class="event-row ${event.type === "online" ? "online" : ""} ${event.image ? "has-image" : ""}">
+        <article class="event-row ${event.type === "online" ? "online" : ""} ${event.image ? "has-image" : ""} ${event.special ? "special-event" : ""}">
           <div class="event-row-date">
             <span>${event.date}</span>
             <strong>${event.time}</strong>
           </div>
           ${event.image ? `<img class="event-row-image" src="${event.image}" alt="${event.title}の案内画像">` : ""}
           <div class="event-row-body">
-            <div class="event-meta"><span class="tag ${event.type === "online" ? "online" : ""}">${event.typeLabel}</span></div>
+            <div class="event-meta">${eventMeta(event)}</div>
             <h3>${event.title}</h3>
             <p>場所：${event.place}</p>
           </div>

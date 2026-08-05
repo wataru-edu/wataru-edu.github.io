@@ -54,16 +54,28 @@ const events = [
     formUrl: "https://forms.gle/RF2BRwkp7KbYWL4Q9"
   },
   {
+    type: "online",
+    typeLabel: "オンライン",
+    date: "9月6日（日）",
+    time: "20:00〜20:40",
+    title: "先生たちの学び場Zoom",
+    description: "Zoomで気軽に集まり、明日のヒントをひとつ持ち帰る時間です。",
+    place: "Zoom",
+    sortDate: "2026-09-06",
+    start: "20260906T200000",
+    end: "20260906T204000"
+  },
+  {
     type: "in-person",
     typeLabel: "対面",
-    date: "9月13日（日）",
+    date: "9月27日（日）",
     time: "10:00〜12:00",
     title: "先生たちの学び場",
     description: "先生同士で、日々の教室のことを話しながら学ぶ時間です。",
     place: "ONVO SALON URAWA",
-    sortDate: "2026-09-13",
-    start: "20260913T100000",
-    end: "20260913T120000"
+    sortDate: "2026-09-27",
+    start: "20260927T100000",
+    end: "20260927T120000"
   },
   {
     type: "in-person",

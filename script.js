@@ -48,6 +48,7 @@ const events = [
     sortDate: "2026-08-16",
     start: "20260816T140000",
     end: "20260816T160000",
+    image: "assets/toss-saitama-summer-fes.svg",
     formUrl: "https://forms.gle/RF2BRwkp7KbYWL4Q9"
   },
   {
@@ -114,7 +115,17 @@ function injectScheduleStyles() {
       border: 0;
       background: linear-gradient(145deg, #fffef9, #fff5e8);
     }
+    .next-event.has-image { padding-top: 24px; }
     .next-event .event-date { font-size: 34px; }
+    .event-poster {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      margin: 0 0 20px;
+      border-radius: 22px;
+      box-shadow: 0 16px 34px rgba(73, 108, 96, .14);
+    }
     .event-list {
       display: grid;
       gap: 12px;
@@ -139,7 +150,16 @@ function injectScheduleStyles() {
       background: white;
       box-shadow: 0 12px 34px rgba(73, 108, 96, .06);
     }
+    .event-row.has-image { grid-template-columns: 145px 148px 1fr auto; }
     .event-row.online { background: #fff8f0; }
+    .event-row-image {
+      width: 148px;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      border-radius: 16px;
+      box-shadow: 0 10px 22px rgba(73, 108, 96, .11);
+    }
     .event-row-date span {
       display: block;
       font-family: "Kiwi Maru", serif;
@@ -178,7 +198,9 @@ function injectScheduleStyles() {
     }
     @media (max-width: 900px) {
       .schedule-grid { grid-template-columns: 1fr; }
-      .event-row { grid-template-columns: 1fr; gap: 12px; }
+      .event-row,
+      .event-row.has-image { grid-template-columns: 1fr; gap: 12px; }
+      .event-row-image { width: 100%; max-width: 360px; }
       .event-row-actions { justify-content: stretch; }
       .event-row-actions a { flex: 1; }
     }
@@ -235,9 +257,10 @@ function renderEvents(filter = "all") {
 
   const [nextEvent, ...laterEvents] = visibleEvents;
   scheduleList.innerHTML = `
-    <article class="event-card next-event ${nextEvent.type === "online" ? "online" : ""}">
+    <article class="event-card next-event ${nextEvent.type === "online" ? "online" : ""} ${nextEvent.image ? "has-image" : ""}">
       <div class="event-label">次回の学び場</div>
       <div class="event-meta"><span class="tag ${nextEvent.type === "online" ? "online" : ""}">${nextEvent.typeLabel}</span><span class="tag">開催予定</span></div>
+      ${nextEvent.image ? `<img class="event-poster" src="${nextEvent.image}" alt="${nextEvent.title}の案内画像">` : ""}
       <div class="event-date">${nextEvent.date}</div>
       <div class="event-time">${nextEvent.time}</div>
       <h3>${nextEvent.title}</h3>
@@ -251,11 +274,12 @@ function renderEvents(filter = "all") {
     <div class="event-list" aria-label="今後の日程">
       <div class="event-list-heading">このあとの予定</div>
       ${laterEvents.map(event => `
-        <article class="event-row ${event.type === "online" ? "online" : ""}">
+        <article class="event-row ${event.type === "online" ? "online" : ""} ${event.image ? "has-image" : ""}">
           <div class="event-row-date">
             <span>${event.date}</span>
             <strong>${event.time}</strong>
           </div>
+          ${event.image ? `<img class="event-row-image" src="${event.image}" alt="${event.title}の案内画像">` : ""}
           <div class="event-row-body">
             <div class="event-meta"><span class="tag ${event.type === "online" ? "online" : ""}">${event.typeLabel}</span></div>
             <h3>${event.title}</h3>

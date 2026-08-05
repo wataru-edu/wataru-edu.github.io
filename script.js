@@ -28,18 +28,6 @@ const events = [
   {
     type: "in-person",
     typeLabel: "対面",
-    date: "8月5日（水）",
-    time: "10:00〜13:00",
-    title: "先生たちの学び場",
-    description: "先生同士で、日々の教室のことを話しながら学ぶ時間です。",
-    place: "ONVO SALON URAWA",
-    sortDate: "2026-08-05",
-    start: "20260805T100000",
-    end: "20260805T130000"
-  },
-  {
-    type: "in-person",
-    typeLabel: "対面",
     date: "8月16日（日）",
     time: "14:00〜16:00",
     title: "TOSS埼玉 夏フェス2026",

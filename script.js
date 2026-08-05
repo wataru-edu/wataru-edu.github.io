@@ -36,7 +36,6 @@ const events = [
     sortDate: "2026-08-16",
     start: "20260816T140000",
     end: "20260816T160000",
-    image: "assets/toss-saitama-summer-fes-300.jpg",
     special: true,
     specialLabel: "特別学習会",
     formUrl: "https://forms.gle/RF2BRwkp7KbYWL4Q9"
